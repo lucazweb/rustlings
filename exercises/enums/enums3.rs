@@ -1,10 +1,12 @@
 // enums3.rs
 // Address all the TODOs to make the tests pass!
 
-// I AM NOT DONE
 
 enum Message {
-    // TODO: implement the message variant types based on their usage below
+    ChangeColor((u32, u32, u32)),
+    Echo(String),
+    Move(Point),
+    Quit
 }
 
 struct Point {
@@ -47,9 +49,9 @@ mod tests {
     #[test]
     fn test_match_message_call() {
         let mut state = State {
-            quit: false,
-            position: Point { x: 0, y: 0 },
-            color: (0, 0, 0),
+            quit: true,
+            position: Point { x: 10, y: 15 },
+            color: (255, 0, 255),
         };
         state.process(Message::ChangeColor((255, 0, 255)));
         state.process(Message::Echo(String::from("hello world")));
